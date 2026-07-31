@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Max Hui Bai, Ph.D · 柏翙 — Scientist, Entrepreneur, Speaker</title>
+<meta name="description" content="Max Hui Bai, Ph.D — director of the Political Belief Lab. Research on AI and social change: political belief, social perception, prejudice, and demographic transformation. Creator of the Publish or Perish Game.">
+<meta name="author" content="Max Hui Bai">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Max Hui Bai, Ph.D · 柏翙">
+<meta property="og:description" content="Scientist, entrepreneur, and speaker studying AI and social change. Director of the Political Belief Lab; creator of the Publish or Perish Game.">
+<meta property="og:url" content="https://www.maxhuibai.com/">
+
+<!-- Favicon: a luminous node in the dark -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2313161C'/%3E%3Ccircle cx='10' cy='22' r='1' fill='%23ECE6DA' opacity='.5'/%3E%3Ccircle cx='22' cy='10' r='1' fill='%23ECE6DA' opacity='.5'/%3E%3Ccircle cx='22' cy='22' r='1' fill='%23ECE6DA' opacity='.35'/%3E%3Ccircle cx='16' cy='16' r='4.4' fill='%23EA9B72'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   TOKENS — "Nocturne"
+   ========================================================= */
+:root{
+  --ground:#13161C;        /* deep cool ink */
+  --ground-2:#171B22;      /* faint lift */
+  --panel:#1B1F28;         /* raised surface */
+  --panel-2:#20242E;       /* hover surface */
+  --line:#2B303B;          /* hairline */
+  --line-2:#373D49;        /* brighter hairline */
+  --bone:#ECE6DA;          /* warm primary text */
+  --bone-2:#9CA2AD;        /* muted secondary (cool) */
+  --bone-3:#6A707C;        /* faint */
+  --coral:#EA9B72;         /* luminous accent */
+  --coral-deep:#D6825A;
+  --coral-soft:rgba(234,155,114,.14);
+
+  --display:"Bricolage Grotesque", system-ui, -apple-system, Segoe UI, sans-serif;
+  --body:"Literata", Georgia, "Times New Roman", serif;
+  --ui:"Bricolage Grotesque", system-ui, sans-serif;
+
+  --maxw:1180px;
+  --read:680px;
+  --r:6px;
+  --r-lg:12px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--bone);
+  font-family:var(--body);font-size:17.5px;line-height:1.62;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+h1,h2,h3,h4,p{margin:0}
+::selection{background:var(--coral);color:var(--ground)}
+
+a.lnk{
+  color:var(--coral);
+  text-decoration:underline;
+  text-decoration-color:rgba(234,155,114,.5);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  text-decoration-skip-ink:auto;
+  transition:color .2s ease,text-decoration-color .25s ease;
+}
+a.lnk:hover{color:var(--bone);text-decoration-color:rgba(236,230,218,.55)}
+
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--coral);color:var(--ground);padding:.6rem 1rem;border-radius:0 0 var(--r) 0;font-family:var(--ui);font-weight:600;font-size:.78rem;letter-spacing:.04em}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:2px}
+
+/* =========================================================
+   LAYOUT PRIMITIVES
+   ========================================================= */
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);position:relative;z-index:1}
+.view{display:none}
+.view.is-active{display:block}
+
+/* eyebrow — the luminous node motif */
+.eyebrow{
+  font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--bone-2);display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 10px rgba(234,155,114,.6);flex:none}
+
+/* divider: hairline with a node */
+.divider{position:relative;height:1px;background:var(--line);border:0;margin:0}
+.divider::after{content:"";position:absolute;left:0;top:50%;width:7px;height:7px;border-radius:50%;background:var(--coral);transform:translateY(-50%);box-shadow:0 0 10px rgba(234,155,114,.5)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-family:var(--ui);font-weight:600;font-size:.82rem;letter-spacing:.01em;
+  padding:.78em 1.2em;border-radius:var(--r);
+  border:1px solid var(--line-2);color:var(--bone);background:transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .25s var(--ease),color .25s var(--ease),transform .2s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover{border-color:var(--bone);transform:translateY(-1px)}
+.btn:hover .arr{transform:translateX(3px)}
+.btn--primary{background:var(--coral);border-color:var(--coral);color:#221008;font-weight:700}
+.btn--primary:hover{background:var(--coral-deep);border-color:var(--coral-deep);color:#221008;box-shadow:0 10px 30px -12px rgba(234,155,114,.5)}
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in srgb, var(--ground) 82%, transparent);
+  backdrop-filter:saturate(1.1) blur(10px);-webkit-backdrop-filter:saturate(1.1) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .bar{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--bone)}
+.chop{
+  width:38px;height:38px;flex:none;border:1.5px solid var(--coral);border-radius:4px;
+  display:grid;place-items:center;font-family:var(--body);font-weight:500;color:var(--coral);
+  font-size:.78rem;line-height:1;padding-top:1px;box-shadow:0 0 18px -6px rgba(234,155,114,.5) inset;
+}
+.chop b{font-size:.94rem}
+.brand .name{display:flex;flex-direction:column;line-height:1.05}
+.brand .name .n1{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.brand .name .n2{font-family:var(--ui);font-weight:600;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bone-2);margin-top:3px}
+
+.nav{display:flex;align-items:center;gap:.1rem}
+.nav a{
+  font-family:var(--ui);font-weight:600;font-size:.78rem;letter-spacing:.02em;
+  color:var(--bone-2);text-decoration:none;padding:.5em .7em;border-radius:var(--r);position:relative;
+  transition:color .2s ease,background .2s ease;
+}
+.nav a:hover{color:var(--bone);background:var(--panel)}
+.nav a[aria-current="page"]{color:var(--bone)}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:50%;bottom:.16em;width:6px;height:6px;border-radius:50%;background:var(--coral);transform:translateX(-50%);box-shadow:0 0 8px rgba(234,155,114,.6)}
+
+.menu-btn{display:none;border:1px solid var(--line-2);background:transparent;border-radius:var(--r);width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{content:"";display:block;width:18px;height:1.5px;background:var(--bone);transition:transform .3s var(--ease),opacity .2s ease;position:relative}
+.menu-btn span::before{position:absolute;top:-6px}
+.menu-btn span::after{position:absolute;top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* =========================================================
+   HERO — spotlight of perception over a dot field
+   ========================================================= */
+.hero{position:relative;padding:clamp(54px,10vw,120px) 0 clamp(40px,6vw,64px);min-height:min(86vh,760px);display:flex;flex-direction:column;justify-content:center}
+.hero-light{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-light::before{
+  content:"";position:absolute;inset:-12%;
+  background-image:radial-gradient(circle, rgba(236,230,218,.17) 1.1px, transparent 1.5px);
+  background-size:23px 23px;
+  -webkit-mask-image:radial-gradient(130% 100% at 82% 8%, #000 0%, transparent 66%);
+  mask-image:radial-gradient(130% 100% at 82% 8%, #000 0%, transparent 66%);
+}
+.hero-light::after{
+  content:"";position:absolute;inset:0;--mx:78%;--my:22%;
+  background:radial-gradient(260px 260px at var(--mx) var(--my), rgba(234,155,114,.22), rgba(234,155,114,.05) 45%, transparent 70%);
+  opacity:.55;transition:opacity .6s ease;
+}
+.hero-light.lit::after{opacity:1}
+
+.hero .wrap{position:relative;z-index:1}
+.cn{font-family:var(--body);color:var(--coral);font-weight:400;font-size:clamp(2rem,6vw,3rem);line-height:1;letter-spacing:.05em;margin-bottom:.55rem;text-shadow:0 0 30px rgba(234,155,114,.35)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.9rem,8vw,6rem);line-height:.94;letter-spacing:-.03em;margin:0 0 1.2rem}
+.hero h1 span{color:var(--coral)}
+.role{font-family:var(--ui);font-weight:600;font-size:clamp(.8rem,1.8vw,.95rem);letter-spacing:.06em;text-transform:uppercase;color:var(--bone-2);display:flex;flex-wrap:wrap;gap:.2rem .7rem;margin-bottom:1.9rem}
+.role span:not(:last-child)::after{content:"/";color:var(--coral);margin-left:.7rem}
+.lead{font-family:var(--body);font-weight:400;font-size:clamp(1.18rem,2.4vw,1.46rem);line-height:1.5;color:var(--bone);max-width:44ch;margin-bottom:2rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+
+/* press strip */
+.press{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:clamp(46px,7vw,72px);padding:1.5rem 0;display:flex;flex-wrap:wrap;align-items:center;gap:.8rem clamp(1.5rem,4vw,3rem);position:relative;z-index:1}
+.press .lbl{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-3)}
+.press a{font-family:var(--display);font-weight:500;font-size:1.16rem;color:var(--bone);text-decoration:none;transition:color .2s ease;position:relative}
+.press a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1.5px;background:var(--coral);transition:right .3s var(--ease)}
+.press a:hover{color:var(--coral)}
+.press a:hover::after{right:0}
+
+/* =========================================================
+   SECTION RHYTHM
+   ========================================================= */
+.block{padding:clamp(48px,7vw,88px) 0}
+.section-head{display:flex;flex-direction:column;gap:1rem;margin-bottom:clamp(28px,3.5vw,44px)}
+.section-head h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.0}
+.section-head p{color:var(--bone-2);max-width:60ch;font-size:1.04rem}
+
+/* =========================================================
+   HOME — about + facts + lines + venture
+   ========================================================= */
+.cols{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,56px)}
+@media(min-width:880px){.cols{grid-template-columns:1.35fr .9fr}}
+.prose-min p{margin-bottom:1.15rem;color:var(--bone);max-width:60ch}
+.prose-min p:last-child{margin-bottom:0}
+
+.facts{border-top:1px solid var(--line)}
+.facts dl{margin:0}
+.facts .row{display:grid;grid-template-columns:1fr;gap:.2rem;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+@media(min-width:520px){.facts .row{grid-template-columns:120px 1fr;gap:1rem;align-items:baseline}}
+.facts dt{font-family:var(--ui);font-weight:600;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-3)}
+.facts dd{margin:0;color:var(--bone);font-size:.98rem}
+.facts dd a{color:var(--coral);text-decoration:none;border-bottom:1px solid rgba(234,155,114,.3);transition:border-color .2s}
+.facts dd a:hover{border-color:var(--coral)}
+
+.venture{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,3.5vw,42px);position:relative;overflow:hidden}
+.venture::after{content:"";position:absolute;right:-50px;top:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at center, rgba(234,155,114,.16), transparent 68%)}
+.venture .eyebrow{margin-bottom:1.1rem}
+.venture h3{font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.8rem;line-height:1.04}
+.venture p{color:var(--bone-2);margin-bottom:1.4rem;max-width:52ch}
+.venture .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-bottom:1.5rem;font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.04em;color:var(--bone-3);text-transform:uppercase}
+
+.lines{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+@media(min-width:760px){.lines{grid-template-columns:repeat(3,1fr)}}
+.lines .ln{background:var(--ground);padding:clamp(22px,3vw,34px);transition:background .25s ease}
+.lines .ln:hover{background:var(--panel)}
+.lines .ln .no{font-family:var(--ui);font-weight:700;font-size:.74rem;letter-spacing:.1em;color:var(--coral);margin-bottom:1.1rem;text-transform:uppercase}
+.lines .ln h4{font-family:var(--display);font-size:1.28rem;font-weight:600;letter-spacing:-.01em;line-height:1.16;margin-bottom:.7rem}
+.lines .ln p{font-size:.95rem;color:var(--bone-2)}
+
+.speak h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.6rem;line-height:1.06}
+.speak p{color:var(--bone-2)}
+
+/* =========================================================
+   RESEARCH FINDINGS (accordion)
+   ========================================================= */
+.cat-label{font-family:var(--ui);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-2);padding-bottom:.85rem;border-bottom:1.5px solid var(--bone);margin:clamp(42px,5vw,64px) 0 0;display:flex;justify-content:space-between;align-items:baseline}
+.cat-label .ct{color:var(--bone-3)}
+.cat-label:first-of-type{margin-top:0}
+
+.entry{border-bottom:1px solid var(--line)}
+.entry summary{list-style:none;cursor:pointer;display:flex;gap:1.1rem;align-items:flex-start;padding:clamp(18px,2.4vw,28px) 0;transition:padding-left .3s var(--ease)}
+.entry summary::-webkit-details-marker{display:none}
+.entry summary:hover{padding-left:8px}
+.entry .q-meta{flex:none;width:96px;padding-top:.45rem}
+.entry .yr{font-family:var(--ui);font-weight:700;font-size:.84rem;color:var(--coral);display:block}
+.entry .jr{font-family:var(--ui);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-3);display:block;margin-top:.3rem}
+.entry .q{flex:1;font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.12;letter-spacing:-.02em;transition:color .2s ease}
+.entry summary:hover .q{color:var(--coral)}
+.entry .pm{flex:none;width:22px;height:22px;position:relative;margin-top:.55rem}
+.entry .pm::before,.entry .pm::after{content:"";position:absolute;background:var(--bone-2);transition:transform .3s var(--ease),background .2s}
+.entry .pm::before{top:50%;left:2px;right:2px;height:1.5px;transform:translateY(-50%)}
+.entry .pm::after{left:50%;top:2px;bottom:2px;width:1.5px;transform:translateX(-50%)}
+.entry[open] .pm::after{transform:translateX(-50%) scaleY(0)}
+.entry[open] .pm::before{background:var(--coral)}
+.entry .body{padding:0 0 clamp(22px,2.6vw,32px) 116px;max-width:76ch}
+.entry .body p{color:var(--bone-2);font-size:1.0rem;line-height:1.66;margin-bottom:1.2rem}
+@media(max-width:620px){
+  .entry summary{flex-wrap:wrap;gap:.5rem .8rem}
+  .entry .q-meta{width:auto;order:2;display:flex;gap:1rem;padding-top:0}
+  .entry .yr,.entry .jr{display:inline-block;margin:0}
+  .entry .q{order:1;flex-basis:calc(100% - 36px)}
+  .entry .pm{order:1}
+  .entry .body{padding-left:0}
+}
+
+/* =========================================================
+   PROSE / ESSAYS
+   ========================================================= */
+.essay{max-width:var(--read);margin:0 auto}
+.essay .lede{font-family:var(--body);font-weight:400;font-size:clamp(1.24rem,2.6vw,1.55rem);line-height:1.5;color:var(--bone);margin-bottom:2.5rem}
+.prose{color:var(--bone)}
+.prose p{margin-bottom:1.4rem;line-height:1.74}
+.prose h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;font-size:clamp(1.45rem,2.8vw,1.85rem);line-height:1.1;margin:2.8rem 0 .5rem}
+.prose h3 .step{display:block;font-family:var(--ui);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:.8rem}
+.prose strong{font-weight:600;color:var(--bone)}
+.prose em{font-style:italic}
+.prose ol,.prose ul{margin:0 0 1.4rem;padding-left:1.4rem}
+.prose li{margin-bottom:.7rem;line-height:1.66}
+.pull{border-left:2px solid var(--coral);padding:.2rem 0 .2rem 1.6rem;margin:2.6rem 0;font-family:var(--body);font-style:italic;font-size:clamp(1.25rem,2.7vw,1.55rem);line-height:1.4;color:var(--bone)}
+
+/* =========================================================
+   BLOG
+   ========================================================= */
+.post{border-top:1px solid var(--line)}
+.post:last-child{border-bottom:1px solid var(--line)}
+.post summary{list-style:none;cursor:pointer;display:flex;gap:1.2rem;align-items:baseline;padding:clamp(22px,3vw,32px) 0;transition:padding-left .3s var(--ease)}
+.post summary::-webkit-details-marker{display:none}
+.post summary:hover{padding-left:8px}
+.post .date{flex:none;font-family:var(--ui);font-weight:700;font-size:.78rem;color:var(--coral);width:104px}
+.post .ttl{flex:1;font-family:var(--display);font-weight:500;font-size:clamp(1.35rem,2.8vw,1.8rem);line-height:1.14;letter-spacing:-.02em;transition:color .2s}
+.post summary:hover .ttl{color:var(--coral)}
+.post .pm{flex:none;width:22px;height:22px;position:relative;align-self:flex-start;margin-top:.4rem}
+.post .pm::before,.post .pm::after{content:"";position:absolute;background:var(--bone-2);transition:transform .3s var(--ease)}
+.post .pm::before{top:50%;left:2px;right:2px;height:1.5px;transform:translateY(-50%)}
+.post .pm::after{left:50%;top:2px;bottom:2px;width:1.5px;transform:translateX(-50%)}
+.post[open] .pm::after{transform:translateX(-50%) scaleY(0)}
+.post .post-body{padding:0 0 clamp(26px,3vw,40px);max-width:var(--read)}
+.post .post-body p{margin-bottom:1.25rem;line-height:1.7;color:var(--bone)}
+.post .post-body p:first-child{margin-top:.3rem}
+.post .post-body strong{font-weight:600}
+.post .post-body ol,.post .post-body ul{padding-left:1.3rem;margin-bottom:1.25rem}
+.post .post-body li{margin-bottom:.6rem;line-height:1.62}
+.post .cite{font-family:var(--ui);font-size:.82rem;font-weight:500;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:.95rem 1.05rem;color:var(--bone-2);line-height:1.5;margin-bottom:1.5rem;word-break:break-word}
+.post .fn{font-size:.92rem;color:var(--bone-2);border-top:1px solid var(--line);padding-top:1.3rem;margin-top:1.9rem}
+@media(max-width:600px){
+  .post summary{flex-wrap:wrap;gap:.5rem}
+  .post .date{width:100%;order:1}
+  .post .ttl{order:2;flex-basis:calc(100% - 36px)}
+  .post .pm{order:2}
+}
+
+
+/* comment threads (migrated) */
+.cmts{margin-top:2.2rem;border-top:1.5px solid var(--bone);padding-top:1.3rem}
+.cmts-h{font-family:var(--ui);font-weight:600;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-3);margin-bottom:1.1rem}
+.cmt{padding:.85rem 0;border-bottom:1px solid var(--line)}
+.cmts .cmt:last-child{border-bottom:0}
+.cmt-m{font-family:var(--ui);font-size:.8rem;margin-bottom:.35rem}
+.cmt-m b{color:var(--bone);font-weight:700}
+.cmt-m span{color:var(--bone-3);margin-left:.7em;font-size:.7rem;font-weight:600}
+.cmt p{font-size:.93rem;line-height:1.6;color:var(--bone-2);margin:0 0 .6rem}
+.cmt p:last-child{margin-bottom:0}
+.cmt p a{color:var(--coral);text-decoration:underline;text-decoration-color:rgba(234,155,114,.5);text-underline-offset:3px;text-decoration-skip-ink:auto}
+.cmt--reply{margin-left:clamp(1.1rem,4vw,2.4rem);border-left:2px solid var(--line-2);padding-left:1.1rem}
+.cmt--author .cmt-m b{color:var(--coral)}
+
+/* =========================================================
+   MATERIALS + TOOLS
+   ========================================================= */
+.link-list{border-top:1px solid var(--bone)}
+.link-list a,.link-list .disabled{display:flex;align-items:center;gap:1.2rem;justify-content:space-between;padding:clamp(20px,2.6vw,30px) 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--bone);transition:padding-left .3s var(--ease)}
+.link-list a:hover{padding-left:10px}
+.link-list .li-main{display:flex;flex-direction:column;gap:.45rem}
+.link-list .li-cat{font-family:var(--ui);font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.link-list .li-ttl{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,2.6vw,1.55rem);letter-spacing:-.01em;line-height:1.14}
+.link-list .li-sub{color:var(--bone-2);font-size:.93rem;max-width:60ch}
+.link-list .li-arr{font-family:var(--ui);font-weight:600;font-size:.8rem;color:var(--bone-2);white-space:nowrap;flex:none}
+.link-list a:hover .li-arr{color:var(--coral)}
+.link-list .disabled{cursor:default;opacity:.5}
+.link-list .disabled .li-arr{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+
+.note-card{background:var(--coral-soft);border:1px solid rgba(234,155,114,.3);border-radius:var(--r-lg);padding:clamp(20px,3vw,30px);margin-top:clamp(28px,4vw,42px)}
+.note-card p{color:var(--bone);font-size:.97rem;line-height:1.6}
+.note-card .eyebrow{margin-bottom:.8rem}
+
+.tool-grid{display:grid;grid-template-columns:1fr;gap:1.2rem;margin-top:8px}
+@media(min-width:680px){.tool-grid{grid-template-columns:1fr 1fr}}
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);text-decoration:none;color:var(--bone);display:flex;flex-direction:column;gap:.85rem;transition:border-color .25s,transform .25s var(--ease),background .25s}
+.tool:hover{border-color:var(--line-2);transform:translateY(-3px);background:var(--panel-2)}
+.tool .code{font-family:var(--ui);font-size:.98rem;font-weight:700;color:var(--coral);letter-spacing:-.01em}
+.tool h3{font-family:var(--display);font-size:1.34rem;font-weight:600;letter-spacing:-.01em;line-height:1.14}
+.tool p{color:var(--bone-2);font-size:.93rem;line-height:1.56;flex:1}
+.tool p code{font-family:var(--ui);font-size:.86em;color:var(--bone);background:var(--ground-2);padding:.05em .35em;border-radius:3px}
+.tool .arr{font-family:var(--ui);font-weight:600;font-size:.78rem;color:var(--bone-2)}
+.tool:hover .arr{color:var(--coral)}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{border-top:1px solid var(--line);margin-top:clamp(40px,8vw,96px);position:relative;z-index:1;background:var(--ground-2)}
+.foot-grid{max-width:var(--maxw);margin:0 auto;padding:clamp(46px,6vw,76px) clamp(20px,5vw,56px);display:grid;grid-template-columns:1fr;gap:clamp(32px,4vw,48px)}
+@media(min-width:780px){.foot-grid{grid-template-columns:1.2fr 1fr;align-items:start}}
+.foot-brand .chop{margin-bottom:1.3rem}
+.foot-brand .fn{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.6rem;margin-bottom:.45rem}
+.foot-brand .ft{font-family:var(--ui);font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-3)}
+.contact h4{font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-2);margin-bottom:1.4rem;padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.contact .c-item{margin-bottom:1.4rem}
+.contact .c-item .c-lbl{font-family:var(--ui);font-weight:600;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-3);display:block;margin-bottom:.4rem}
+.contact .c-item a{font-family:var(--display);font-weight:600;font-size:1.18rem;color:var(--bone);text-decoration:none;border-bottom:1px solid var(--coral);padding-bottom:1px;transition:color .2s}
+.contact .c-item a:hover{color:var(--coral)}
+.contact .c-item .c-note{display:block;font-size:.83rem;color:var(--bone-3);margin-top:.45rem;line-height:1.45;max-width:40ch}
+.foot-bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 auto;padding:1.4rem clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--ui);font-weight:600;font-size:.7rem;letter-spacing:.05em;color:var(--bone-3);text-transform:uppercase}
+.foot-bottom a{color:var(--bone-2);text-decoration:none;cursor:pointer;transition:color .2s}
+.foot-bottom a:hover{color:var(--coral)}
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(234,155,114,.5)}50%{box-shadow:0 0 18px rgba(234,155,114,.85)}}
+.view.is-active .reveal{animation:rise .7s var(--ease) both}
+.view.is-active .reveal:nth-child(2){animation-delay:.06s}
+.view.is-active .reveal:nth-child(3){animation-delay:.12s}
+.view.is-active .reveal:nth-child(4){animation-delay:.18s}
+.view.is-active .reveal:nth-child(5){animation-delay:.24s}
+
+/* =========================================================
+   RESPONSIVE NAV
+   ========================================================= */
+@media(max-width:1020px){
+  .menu-btn{display:flex}
+  .nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--ground);border-bottom:1px solid var(--line);padding:.5rem clamp(20px,5vw,56px) 1.4rem;transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .3s var(--ease),opacity .25s ease;box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
+  .nav.open{transform:none;opacity:1;pointer-events:auto}
+  .nav a{padding:.95em .2em;font-size:.86rem;border-bottom:1px solid var(--line)}
+  .nav a:hover{background:transparent}
+  .nav a[aria-current="page"]::after{left:.2em;bottom:50%;transform:translateY(50%)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero-light::after{opacity:.7}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ========================= HEADER ========================= -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#home" data-nav>
+      <span class="chop" aria-hidden="true"><b>柏</b>翙</span>
+      <span class="name">
+        <span class="n1">Max Hui Bai</span>
+        <span class="n2">Political Belief Lab</span>
+      </span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="primaryNav"><span></span></button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a href="#home" data-nav>Home</a>
+      <a href="#research" data-nav>Research</a>
+      <a href="#diversity" data-nav>Diversity</a>
+      <a href="#blog" data-nav>Blog</a>
+      <a href="#materials" data-nav>Materials</a>
+      <a href="#tools" data-nav>Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ========================= HOME ========================= -->
+<section class="view" id="view-home" data-view="home" aria-label="Home">
+  <div class="hero">
+    <div class="hero-light" id="heroLight" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow reveal">Independent research · Political Belief Lab</p>
+      <div class="cn reveal" aria-hidden="true">柏翙</div>
+      <h1 class="reveal">Max Hui&nbsp;Bai, <span>Ph.D</span></h1>
+      <div class="role reveal"><span>Scientist</span><span>Entrepreneur</span><span>Speaker</span></div>
+      <p class="lead reveal">I study how social change — shifting populations, and now the rise of AI — reshapes what people believe and how they see one another. I also build things, including the <a class="lnk" href="https://www.kickstarter.com/projects/maxhuibai/publish-or-perish-1" target="_blank" rel="noopener">Publish or Perish</a> card game.</p>
+      <div class="cta-row reveal">
+        <a class="btn btn--primary" href="/uploads/1/2/1/1/121166125/bai_cv.pdf" target="_blank" rel="noopener">Curriculum Vitae <span class="arr">→</span></a>
+        <a class="btn" href="https://scholar.google.com/citations?user=nOqNTasAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener">Google Scholar <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="press">
+      <span class="lbl">Featured in</span>
+      <a href="https://www.washingtonpost.com/news/monkey-cage/wp/2018/11/07/how-the-venezuelan-economic-crisis-is-undermining-social-science-research-about-everything-not-just-venezuela/" target="_blank" rel="noopener">The Washington Post</a>
+      <a href="https://www.newyorker.com/tech/annals-of-technology/why-your-name-matters" target="_blank" rel="noopener">The New Yorker</a>
+      <a href="https://www.nature.com/articles/d41586-024-02511-5" target="_blank" rel="noopener">Nature</a>
+      <a href="https://www.wired.com/story/amazon-mechanical-turk-bot-panic/" target="_blank" rel="noopener">WIRED</a>
+    </div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="block">
+    <div class="wrap">
+      <div class="cols">
+        <div class="prose-min">
+          <p class="eyebrow" style="margin-bottom:1.5rem">About</p>
+          <p>Max is the director of the <strong>Political Belief Lab</strong>, an independent research lab. He was consulted by organizations such as OpenAI and the White House, and has delivered talks at universities and conferences — including the 2025 keynote at <a class="lnk" href="https://www.youtube.com/watch?v=NFs9KzYwUF4&amp;t=320s" target="_blank" rel="noopener">ALPSP</a>.</p>
+          <p>He was previously a scientist at Stanford's <a class="lnk" href="https://www.pascl.stanford.edu" target="_blank" rel="noopener">Polarization and Social Change Lab</a> and <a class="lnk" href="https://impact.stanford.edu/" target="_blank" rel="noopener">Stanford Impact Labs</a>. Alongside research, he runs several small businesses as an entrepreneur.</p>
+        </div>
+        <div class="facts">
+          <dl>
+            <div class="row"><dt>Doctorate</dt><dd>Ph.D, Social Psychology — University of Minnesota, Twin Cities</dd></div>
+            <div class="row"><dt>Previously</dt><dd>Stanford University — PASCL &amp; Stanford Impact Labs</dd></div>
+            <div class="row"><dt>Training</dt><dd>Alumnus, Stanford Ignite</dd></div>
+            <div class="row"><dt>Advised</dt><dd>OpenAI · The White House</dd></div>
+            <div class="row"><dt>Field</dt><dd>Political belief · social perception · prejudice · demographic change</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- RESEARCH AT A GLANCE -->
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">AI and social change</p>
+        <h2>What does a changing society do to the mind?</h2>
+        <p>Society is being remade by two forces at once — demographic change and the arrival of AI. I study how each reshapes what people believe and how they see one another. The work runs along three threads.</p>
+      </div>
+      <div class="lines">
+        <div class="ln">
+          <div class="no">Line 01</div>
+          <h4>The psychology of social change</h4>
+          <p>Majorities attend to the decline of their own group more than the growth of others — activating a collective existential threat and political backlash.</p>
+        </div>
+        <div class="ln">
+          <div class="no">Line 02</div>
+          <h4>Belief over identity</h4>
+          <p>We evaluate leaders by what they believe, not their race or gender. Belief can even bend how we visually perceive a person's race.</p>
+        </div>
+        <div class="ln">
+          <div class="no">Line 03</div>
+          <h4>AI &amp; new methods</h4>
+          <p>Treating AI as both a subject and a tool — from real-time, AI-generated persuasion to new methods for catching bad data and untangling confounded effects.</p>
+        </div>
+      </div>
+      <div class="cta-row" style="margin-top:2.2rem">
+        <a class="btn btn--primary" href="#research" data-nav>Browse findings <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <!-- VENTURES -->
+  <div class="block">
+    <div class="wrap">
+      <div class="cols">
+        <div class="venture">
+          <p class="eyebrow">Entrepreneurship · Flagship</p>
+          <h3>The Publish or Perish Game</h3>
+          <p>A satirical card game about the grind of academic life — the grants, the rejections, and Reviewer&nbsp;#2 of it all. Turned the absurdity of the tenure track into something you can play at a table.</p>
+          <div class="meta"><span>Card game</span><span>Kickstarter</span><span>Press-covered</span></div>
+          <a class="btn btn--primary" href="https://www.kickstarter.com/projects/maxhuibai/publish-or-perish-1" target="_blank" rel="noopener">View on Kickstarter <span class="arr">↗</span></a>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom:1.5rem">On stage</p>
+          <div class="speak">
+            <h3>Keynote — ALPSP, 2025</h3>
+            <p style="margin-bottom:1.4rem">On data quality, AI, and the future of the social and behavioral sciences. Delivered to the Association of Learned &amp; Professional Society Publishers.</p>
+            <a class="btn" href="https://www.youtube.com/watch?v=NFs9KzYwUF4&amp;t=320s" target="_blank" rel="noopener">Watch the talk <span class="arr">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= RESEARCH FINDINGS ========================= -->
+<section class="view" id="view-research" data-view="research" aria-label="Research findings">
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Research findings</p>
+        <h2>The work, framed as questions.</h2>
+        <p>Each study began with something I genuinely wanted to know. Open a question to read the abstract and reach the paper and materials.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="cat-label">Selected publications <span class="ct">Peer-reviewed</span></div>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2025</span><span class="jr">Nature Comms</span></span><span class="q">Can AI persuade us as well as another person can?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Large language models can now write fluent arguments — so can they move our politics? Across three pre-registered experiments with diverse samples of Americans (total N ≈ 4,800), messages generated by openly available LLMs significantly shifted readers’ attitudes across a range of policies, including polarized ones like an assault-weapons ban, a carbon tax, and a paid parental-leave program. The AI-generated messages were about as persuasive as messages crafted by laypeople. The findings carry direct implications for misinformation, political persuasion, and the governance of generative AI.</p><a class="btn" href="https://www.nature.com/articles/s41467-025-61345-5" target="_blank" rel="noopener">Read in Nature Communications <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2024</span><span class="jr">JPSP</span></span><span class="q">How are Asian and Black people stigmatized differently?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>How different racial minorities experience racism differently remains underexplored. Twelve studies spotlight a racial asymmetry in dehumanization using a wide array of methods (experimental, archival, and computational) and data sources (online samples, word embeddings, and U.S. Bureau of Labor Statistics data): whereas Black people are more often subjected to animalistic dehumanization, Asian people are predominantly subjected to mechanistic dehumanization. The asymmetry emerges from the vantage points of both victims and perpetrators, and across domains from everyday language to perceptions of romantic relationships, crime, and business skill — introducing a new way to understand and unify Asian stereotypes. (with Xian Zhao)</p><a class="btn" href="https://doi.org/10.1037/pspi0000455" target="_blank" rel="noopener">Read in JPSP <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2022</span><span class="jr">PSPB</span></span><span class="q">How do political values and identity relate to support for political candidates?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Past studies on how political value (ideology) and identity (party) predict support for candidates often consider only citizens or only candidates, introducing omitted-variable problems. This paper introduces the multiple-matching perspective, which considers how a citizen's ideology and identity are matched by a candidate's ideology and party. Four studies reveal that the effect of ideology match is large, robust, and consistent; that candidates' ideology matters more than their party except in the final stage of a presidential race; and that party can guide citizens to support a candidate based on the candidate's ideology (Republicans supporting conservatives) more than the reverse.</p><a class="btn" href="https://osf.io/jvfcy" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2022</span><span class="jr">GPIR</span></span><span class="q">Why does the growth of the Muslim population provoke diverging responses from Republicans and Democrats?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Five experiments show that Republicans and Democrats respond to Muslim population growth with divergent reactions across three domains: threat perception, celebratory reaction, and emotion. Republicans more often perceive the growth as a threat to Christians and to American culture, law, and peace; they show fewer celebratory reactions, with less hope and pride and more anxiety and anger. These divergences are partially explained by ideology and media exposure — not by racial mechanisms or religious identity. Political leaning can shape reactions to demographic change in ways that go beyond a dominant group's concern for status.</p><a class="btn" href="https://osf.io/5de6x" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2021</span><span class="jr">JPSP</span></span><span class="q">Does racism and sexism really undermine Black and female politicians?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Using large nationally diverse or representative samples (total N = 44,836), this work shows that citizens' prejudice does not usually benefit or undermine politicians from a particular demographic group, as many studies assumed. Instead, prejudice predicts support for conservative politicians and opposition to liberal ones — regardless of the politician's demographics. Racism and sexism negatively predict support for liberals like Obama, Clinton, and Sanders, and positively predict support for conservatives like Trump, Carson, and Fiorina, irrespective of race and gender. The pattern is confirmed experimentally and historically (1972–2016): prejudice translates into political preference primarily through the politician's ideology, not their demographic background.</p><a class="btn" href="https://osf.io/jq9hk" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2021</span><span class="jr">SPPS</span></span><span class="q">In White identity politics, does a candidate's race matter more than their ideology?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>White Americans' racial identity can predict their sociopolitical attitudes, but it has been unclear whether the effects of White identity politics turn on candidates' ideology or race. Four studies with White American samples consistently support the ideology hypothesis: White identity predicts support for conservative politicians and opposition to liberal ones because of their ideology. Evidence is limited for the racial hypothesis — that White identity predicts support for White over Black politicians because of race. The findings clarify who actually benefits from the growing influence of White identity politics.</p><a class="btn" href="https://osf.io/8kpmr" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2021</span><span class="jr">Longitudinal</span></span><span class="q">What predicts change in a citizen's vote preference over time?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Much is known about what predicts vote preference, less about what predicts change in it. This paper focuses on judgments about the national economy in the recent past — sociotropic economic retrospections. Two longitudinal studies show that these retrospections (with partisanship, ideology, and incumbency) predict within-person changes in vote choice over time, and cross-lagged analyses suggest reciprocal effects. The link between economic retrospection and vote preference is more dynamic than past literature implies.</p><a class="btn" href="https://osf.io/unx3c" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2021</span><span class="jr">Experimental</span></span><span class="q">Thou shalt not kill — unless it is not a human?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Research on moral dilemmas has examined personality and situational variables but relatively neglected the targets within the dilemmas. Four experiments manipulated the perceived dehumanization of targets. Dehumanized targets tended to make decisions easier and less emotional, and in some studies led to less deontological judgment. Though patterns were somewhat inconsistent across studies, overall the results suggest that a target's dehumanization can shape how people resolve moral dilemmas.</p><a class="btn" href="https://osf.io/g387h" target="_blank" rel="noopener">Paper &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2020</span><span class="jr">Working</span></span><span class="q">What type of people become far-right extremists?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Across five studies, White Americans who regard their racial background as very important to their self-concept report higher levels of far-right extremism. The effect is particularly strong among people who believe society should be more hierarchical — those higher in social dominance orientation.</p></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2020</span><span class="jr">Working</span></span><span class="q">How do White Americans react to the population decline of Whites?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Two studies examine whether a perceived numerical decline of the White population translates into a perceived existential threat, prompting defensive reactions. Correlational data show that a collective existential threat explains the link between perceived White decline and defensive political reactions (racial bias and conservatism). A second study replicates this experimentally by manipulating perceptions of decline and growth — suggesting that perceived in-group numerical decline uniquely shifts racial and political attitudes via heightened collective existential threat.</p></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">2012</span><span class="jr">Early work</span></span><span class="q">Do our names affect our preferences and behavior?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>The name-letter effect refers to unconscious priming from one's own name. Study 1 found no correlation between students' last-name initials and when they took an exam; Study 2 replicated a relationship between last-name initial and GPA. Given methodological concerns and inconsistent results, the findings suggest the name initial is, at best, a very limited unconscious prime — if it operates at all.</p><a class="btn" href="https://2538b660-a-551982af-s-sites.googlegroups.com/a/umn.edu/sentience/Bai_2012.pdf" target="_blank" rel="noopener">Paper (PDF) <span class="arr">↗</span></a></div>
+        </details>
+
+        <div class="cat-label">Working papers &amp; under review <span class="ct">Preprints</span></div>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">10 studies</span></span><span class="q">Can you look like what you believe?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Our beliefs about society do not determine our race or our phenotype — yet this is how others perceive us. Ten experiments introduce a belief-driven model: mind perception shapes identity perception, which shapes phenotype perception. People are more likely to identify a person as Black, and to see them as darker-skinned, when that person holds liberal rather than conservative beliefs. The first step is explained by perceivers' stereotypes; the second reflects biased visual perception, not biased memory. The theory generalizes to perceptions of sexual identity and replicates across three cultural contexts (U.S., Mexico, South Africa). Implications for racism in a supposedly "post-racial" society are discussed.</p><a class="btn" href="https://psyarxiv.com/mbvxt/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+                <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">5 studies</span></span><span class="q">Can fake news we know is fake still change us?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Teaching people to recognize fake news as fake is a popular remedy — but this paper reveals its limit. In five experiments, participants thoroughly told they were about to read a made-up article still came to believe its content and shifted their political preferences or behavioral intentions. The effects resisted corrective efforts and persisted over time — observable two days, and again nine days, after exposure. The findings carry implications for misinformation research, media practice, polarization, and common research practices such as deception and debriefing.</p><a class="btn" href="https://psyarxiv.com/v9gax/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">N = 3,346</span></span><span class="q">Which matters more — symbolic threat or status threat?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Past theory holds that we dislike out-groups that challenge our in-group's social status — but that effect may be confounded by symbolic threat, since status-threatening groups are also usually seen as holding different values. Six experiments clarify that our feelings about others are determined more by symbolic threat than status threat, the latter losing its effect once the former is accounted for. The pattern holds for evaluations of hypothetical immigrants, countries, third parties, and individuals: feelings toward a person turn on whether they are perceived to share the in-group's beliefs, not whether they actually belong to it.</p><a class="btn" href="https://psyarxiv.com/7wux6/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">Pre-registered</span></span><span class="q">How is implicit prejudice related to political preferences?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Explicit prejudice relates to explicit support for conservative and opposition to liberal politicians regardless of demographics — but how does prejudice relate to candidate evaluation implicitly? Four pre-registered experiments clarify that politicians' ideology, not race or gender, drives the association between prejudice and evaluation, whether prejudice is measured explicitly or implicitly. These preferences are driven primarily by citizens' preference for politicians who support inequality, and to a lesser extent the status quo.</p><a class="btn" href="https://psyarxiv.com/2qtf8/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">UK · US</span></span><span class="q">Who bought all the toilet paper during the pandemic?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Some people responded to the COVID-19 pandemic with panic buying — a poorly understood phenomenon. People who believe pandemic conspiracies may experience a heightened sense of powerlessness and vulnerability, and so may be especially prone to palliative, compensatory stockpiling. Supporting this, two studies (cross-sectional UK and longitudinal US) show that people who endorse COVID-19 conspiracy theories are more likely to stockpile, both in the past and in the future.</p><a class="btn" href="https://psyarxiv.com/z2g34/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+
+        <details class="entry">
+          <summary><span class="q-meta"><span class="yr">Preprint</span><span class="jr">N = 13,274</span></span><span class="q">How do race and gender jointly shape the experience of stigma?</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="body"><p>Five studies test three accounts of how race and gender jointly contribute to stigmatization: additive (race → racial stigma; gender → gender stigma), projective (race → gender stigma; gender → racial stigma), and multiplicative (race × gender → stigma). The evidence consistently supports the additive approach and disconfirms the multiplicative one. For the projective approach, an asymmetry emerges — race shapes gender stigmatization, but gender does not shape racial stigmatization — clarifying theories of double jeopardy.</p><a class="btn" href="https://psyarxiv.com/3286s/" target="_blank" rel="noopener">Preprint &amp; materials <span class="arr">↗</span></a></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= DIVERSITY STATEMENT ========================= -->
+<section class="view" id="view-diversity" data-view="diversity" aria-label="Diversity statement">
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head essay reveal" style="margin-bottom:clamp(30px,4vw,48px)">
+        <p class="eyebrow">Diversity statement</p>
+        <h2>Equity, from lived experience.</h2>
+      </div>
+      <article class="essay prose reveal">
+        <p class="lede">The richest 100 Americans own more than $2 trillion in assets — about 10% of U.S. GDP in 2021. A photo of that group would show almost entirely White men, a scene strikingly like an 18th-century gathering of the British aristocracy. Meanwhile, compared with White Americans, Black Americans are only two-thirds as likely to graduate from college, almost twice as likely to be unemployed, and over five times as likely to be incarcerated.</p>
+        <p>Social disparities run along many other axes too — gender, sexual orientation and identity, religion, immigration status. As an immigrant, a person of color, a neuroatypical scholar, and a queer person, I know firsthand how diversity, equity, and inclusion shape lives like mine, and how urgent it is to address them. Informed by that experience, I promote DEI as a researcher, a teacher, and an advocate.</p>
+
+        <h3><span class="step">Practice 01</span>As a researcher</h3>
+        <p>My research engages directly with race, gender, and politics, contributing to DEI by advancing our understanding of prejudice, identifying the factors that hinder progress, and offering recommendations for organizations. For example, my recent work offers a theory that support for a leader is determined more by the leader's beliefs than by their race or gender (<a class="lnk" href="http://osf.io/jq9hk" target="_blank" rel="noopener">Bai, 2021, <em>JPSP</em></a>). Many prejudiced citizens support Black and female candidates whose platforms do not challenge the status quo, while opposing White male candidates whose policies would advance equality. Prejudice can thus be disguised as support for minority right-wing leaders ("I vouched for a Black guy, so how can I be racist?"). The implication: diversity initiatives should weigh not only the demographics of those hired, but whether they will advocate for women and people of color.</p>
+        <p>I am also committed to my field's inclusiveness in <em>whose</em> psychology we study. In one paper proposing a symmetry in racial dehumanization (<a class="lnk" href="https://doi.org/10.1037/pspi0000455" target="_blank" rel="noopener">Bai &amp; Zhao, 2024, <em>JPSP</em></a>), we examine the question from the perspectives of Black and Asian participants, not only the majority's view. That commitment extends beyond the U.S.: in my work on the belief-driven model of social perception (<a class="lnk" href="https://psyarxiv.com/mbvxt/" target="_blank" rel="noopener">Bai, unpublished</a>), I collected data from the global south — Mexico and South Africa — which are rarely represented in social and behavioral science.</p>
+        <p>Finally, I work to diversify the scientific community itself. When proposing a conference symposium, I ensure women and scientists of color are included, and I form collaborations across backgrounds. To date, all of my mentees and research assistants have been women or students of color. As a researcher who studies diversity itself, I take its value to heart — and I look forward to helping lead my field toward becoming more diverse and inclusive.</p>
+
+        <h3><span class="step">Practice 02</span>As a teacher</h3>
+        <p>I will never forget my fourth-grade teacher's disparaging remarks during a bad episode of Tourette's in class. I remember my seventh-grade teacher telling me I did not belong in the city I lived in when she learned my family was Beipiao — migrant workers in Beijing. I did not come out as queer until college, because so many of my teachers had used slurs to describe queer people.</p>
+        <p>Teachers have a tremendous and lasting impact; what they say and how they shape a classroom profoundly affects how students see themselves. As a teacher, I am committed to an environment where diversity is celebrated, difference is valued, and everyone is included. I make that value explicit, adopt the latest strategies for DEI in the classroom, and build in flexibility and availability that goes a long way for marginalized students. I prioritize meeting with students, respond promptly, and am never "too busy." When a student falls behind, I offer one-on-one coaching to set Specific, Measurable, Achievable, Relevant, and Time-bound goals — providing extra support for those from diverse and marginalized backgrounds.</p>
+
+        <h3><span class="step">Practice 03</span>As a social-justice advocate</h3>
+        <p>As someone with several intersecting marginalized identities, I care deeply about social justice. I have volunteered at the Beijing LGBT Center and the Queer Student Cultural Center (QSCC) at the University of Minnesota, organizing events to build community and promote trust and positive images of queer people. As a group facilitator at the QSCC, I led discussions and supported individuals at various stages of coming out — including those still discovering or coming to terms with their sexual or gender identity.</p>
+        <p>I also advance social justice by communicating DEI-related science to the public. I have hosted workshops discussing research on diversity and racism with non-academic audiences, including seniors in nursing homes and leaders in private companies. Over the long term, I believe these efforts compound — creating more informed citizens who make progress toward DEI in everyday life.</p>
+
+        <h3>In conclusion</h3>
+        <p>I am committed to promoting diversity, equity, and inclusion as a researcher, a teacher, and a leader in my community — and I look forward to incorporating impactful DEI efforts into my work as a faculty member.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= BLOG ========================= -->
+<section class="view" id="view-blog" data-view="blog" aria-label="Blog">
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Blog · August 2018</p>
+        <h2>The MTurk data-quality investigation.</h2>
+        <p>In 2018 I noticed a wave of low-quality responses contaminating online survey data and organized an open, collaborative effort to measure it. These posts document the method and the evidence as it developed — along with the discussion they drew, preserved from the original site.</p>
+      </div>
+
+      <div class="reveal">
+        <details class="post">
+          <summary><span class="date">15 Aug 2018</span><span class="ttl">Proposed agenda and updates on the MTurk issue</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="post-body">
+            <p>Here is a proposed agenda for the current MTurk issue. The document also includes some updates on how many researchers have seen duplicates in their data so far. I invite comments and collaboration: <a class="lnk" href="http://z.umn.edu/MturkIssue" target="_blank" rel="noopener">z.umn.edu/MturkIssue</a></p>
+
+            <div class="cmts">
+            <div class="cmts-h">Discussion · preserved verbatim from the original site · spam removed</div>
+            <div class="cmt"><div class="cmt-m"><b>Jason</b><span>9/17/2018 07:32:05 pm</span></div><p>Crowd-sourced work force platforms have always interested me. As I read about the alarm that you have raised for the potential about bad data on account of bots, I can't help but to wonder about what sort of financial impact that your posts have had on the income of workers on Amazon Mechanical Turk as some researchers opt to not post surveys on Amazon Mechanical Turk on account of the doubts that you have raised, but not sufficiently proven. Reading through the worker forums, many are commenting on the recent drop in work available following your posts. Several of the more seasoned workers are beginning to mention "lawsuit".</p><p>Have no doubt, I am certainly worried about surveys being flooded with bad data from bots of malicious workers.</p><p>However, in considering the fact that you raised the alarm before conducting a truly systematic study/survey of the data has been completed, and considering that many legitimate workers meticulously track statistics about work available and their own earnings from Amazon Mechanical Turk, are you potentially at risk for any sort of legal action on the behalf of these workers who can reasonably demonstrate a loss of wages on account of your public blog posts?</p><p>If these surveys were unpaid and completed strictly by volunteers, then I wouldn't be concerned. However, since your postings could potentially have an impact on the wages of thousands of workers shouldn't that require you to be more thorough and cautious about the validity of your claims before they are made public?</p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Helen</b><span>9/20/2018 11:13:12 am</span></div><p>THANK YOU! YES! [APPLAUSE]</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Sally</b><span>9/20/2018 11:24:39 am</span></div><p>I too think that before you published or stated your opinion that you should of had some kind of proof. There are many honest hard working people that put in their time on Mturk to assist requesters with their surveys and most of it for underpaid wages. I have also looked at the forums and see the struggle they are having and the reports of less well paying surveys and other work since your article. For many of the workers this is their main source of income. I encourage any requesters, students, etc. that before making a decision not to use mturk that they themselves go to a couple of the different forums and get to know the people that work on Mturk and not to just take Jason's unproven opinion on bots.</p></div>
+            </div>
+          </div>
+        </details>
+
+        <details class="post">
+          <summary><span class="date">13 Aug 2018</span><span class="ttl">A prospective test and some predictions regarding MTurk data contamination</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="post-body">
+            <p>Many of us who collected data from MTurk recently noticed an increase in duplicated GPS coordinates, and we have learned that the duplicates may produce unreliable responses. Some scholars question whether the GPS method can reliably detect unreliable responses; others wonder whether the unreliable responses I have seen so far are outliers, and whether the issue is pervasive. Here I propose a simple test with specific predictions that can soon answer these concerns.</p>
+            <p>The dataset where I initially found the anomaly is still collecting data (target N = 1,500). The existing analyses are based on the first third of the sample. One way to address whether GPS duplicates are pervasive — and whether the GPS method detects unreliable responses — is to apply my own procedure to the remaining two-thirds as it comes in. I welcome thoughts and comments on these predictions.</p>
+            <p><strong>Testing pervasiveness.</strong> My impression is that duplicates have become more common over a matter of weeks. In my existing data with 578 participants, about half are duplicates. If I predict that the remaining 1,000 responses contain about 500 (if not more) from duplicates, that would be strong evidence the duplicates are rampant — at least in my own data.</p>
+            <p><strong>Testing data quality.</strong> If the following predictions are preponderantly supported, we have strong evidence that responses from duplicates are unreliable:</p>
+            <ol>
+              <li><strong>Reliability of known scales.</strong> For duplicates, the racial-identification scale should fall around .11; for non-duplicates, above .8 (near .87). The symbolic-threat scale should fall under .2 for duplicates (near −.01) and above .7 for non-duplicates (near .81).</li>
+              <li><strong>Distribution of measures with known distributions.</strong> On feelings toward the KKK and the Nazi party (0–100, 50 = midpoint), I predict duplicates average near 60 and non-duplicates near 8.5.</li>
+              <li><strong>Measures known to correlate.</strong> For non-duplicates, feelings toward liberal politicians should correlate with ideology and party ID near −.59 and −.57 (p &lt; .001); for duplicates, non-significant. Conservative politicians are messier and I make no prediction for them yet.</li>
+              <li><strong>Qualitative responses.</strong> For duplicates, "good" should appear about 25% of the time (near 26.6%) and "nice" about 20% (near 21%); for non-duplicates, under 3%.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="post">
+          <summary><span class="date">10 Aug 2018</span><span class="ttl">A proposed procedure for testing the evidentiary value of responses from duplicated GPS sources</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="post-body">
+            <p>Many of us have found a notable amount of duplicated GPS (not IP) in our recent MTurk data. Circumstantial evidence suggests these responses are random and unreliable. The following procedure tests the evidentiary value of responses from duplicates and determines whether they are truly random. I invite open comments; I will revise based on feedback and distribute the survey the following Friday.</p>
+            <p>The four proposed tests:</p>
+            <ol>
+              <li><strong>Reliability of known scales.</strong> Pick a well-validated scale with known reliability — ideally one with 50% reverse-coded items — and report reliability for duplicates and non-duplicates separately.</li>
+              <li><strong>Distribution of known measures.</strong> Pick a measure with a known or expected skewed distribution (the more skewed the better) and report it for duplicates and non-duplicates separately.</li>
+              <li><strong>Relationships between variables known to correlate.</strong> Pick two strongly correlated measures, ideally both with 50% reverse-coded items and on different survey pages.</li>
+              <li><strong>Frequency of suspicious key words.</strong> Duplicates tend to enter "good," "nice," and "very" regardless of what is asked. Count how many come from duplicates versus non-duplicates, focusing on "good" and "nice."</li>
+            </ol>
+            <p>For tests 1–3, I also plan to analyze a random subset of non-duplicates of comparable N, so non-duplicates gain no unfair advantage from higher sample size.</p>
+            <p><strong>Conclusion.</strong> We would have strong evidence that GPS-duplicate responses have limited evidentiary value if a preponderance of analyses show a large discrepancy between duplicates and non-duplicates on the reliability of known scales, the distribution of known measures, the correlation between variables known to correlate, and the frequency of suspicious key words.</p>
+            <p class="fn"><strong>Footnote.</strong> Among 282 responses from duplicates in my still-collecting survey, "good" appears 75 times (26.6%), "nice" 59 times (21%), and "very" 19 times (6.7%). Among 296 non-duplicate responses, "good" shows up only twice, "nice" once, and "very" not at all — and those few appear to be random responses the GPS method missed, with KKK/Nazi ratings near 50 rather than the typical 8–9.</p>
+          </div>
+        </details>
+
+        <details class="post">
+          <summary><span class="date">08 Aug 2018</span><span class="ttl">Evidence that a large amount of low-quality MTurk responses can be detected with repeated GPS coordinates</span><span class="pm" aria-hidden="true"></span></summary>
+          <div class="post-body">
+            <p class="cite">Suggested citation — Bai, H. (2018). Evidence that a large amount of low-quality responses on MTurk can be detected with repeated GPS coordinates. https://www.maxhuibai.com/blog/evidence-that-responses-from-repeating-gps-are-random</p>
+            <p><strong>Background.</strong> In the past day or two, I discovered that a large number of responses in my latest MTurk survey appear to be random — and that a large portion of them have repeating GPS locations. A relatively large number of social psychologists have also noticed a drop in MTurk data quality and detected concerning patterns with the GPS method.</p>
+            <p><strong>What is being done.</strong> I am organizing an effort to determine the scale and nature of the problem, and I need help from as many labs as possible. One quick check for contamination: search your data for the latitude fragment <strong>88639831</strong> (the final digit may differ due to rounding). This location appeared across multiple surveys; if it is in your data, examine how many participants share repeating GPS coordinates and consider analyzing or excluding them separately. Responses with this — and any other repeating — GPS location appear to be random.</p>
+            <p><strong>Scale of impact.</strong> So far at least about 90 studies from around the world (mostly North America and Europe) seem affected, with contamination dating back to as early as March 2018.</p>
+            <p><strong>Evidence that repeaters are random.</strong> In a survey still collecting data (N = 578), 282 (48.8%) have duplicated GPS. Analyzed separately:</p>
+            <ol>
+              <li><strong>Reliability of known scales.</strong> The racial-identification scale's reliability is .87 for non-repeaters and .11 for repeaters; the symbolic-threat scale is .81 versus −.01. Repeaters appear to straight-line their responses regardless of reverse-coding.</li>
+              <li><strong>Known distributions.</strong> Feelings toward the KKK and the Nazi party (0–100) average 8.90 and 8.21 for non-repeaters, but 60.82 and 60.02 for repeaters — more consistent with random responding than genuine affinity.</li>
+              <li><strong>Variables known to correlate.</strong> Feelings toward liberal politicians correlate with ideology and party ID at −.59 and −.57 for non-repeaters (both p &lt; .001), but are non-significant for repeaters. For conservative politicians, the non-repeater correlations are .53 and .48; for repeaters, ideology holds but party ID does not.</li>
+            </ol>
+            <p>The predictive power of known variables does not hold up for repeaters as it does for non-repeaters — evidence that repeaters, whatever they are, are not giving meaningful responses.</p>
+            <p class="fn">Measures included a four-item racial-identification scale, a three-item symbolic-threat scale, a single-item political-ideology measure (1 = very liberal to 7 = very conservative), and a single-item party-identification measure (1 = strong Democrat to 7 = strong Republican). Hypotheses, analysis plan, and data sharing were pre-registered.</p>
+
+            <div class="cmts">
+            <div class="cmts-h">Discussion · preserved verbatim from the original site · spam removed</div>
+            <div class="cmt"><div class="cmt-m"><b>Young-Jae Cha</b><span>8/9/2018 01:53:01 am</span></div><p>Dear Max,</p><p>I appreciate your thoughtful notice about the possibility of data contamination. In my recent dataset (01/08), I found a data with "xx.88639831xxx" (I erased real numbers by using x intentionally). In this case, "88639831" is in the middle of consecutive numbers. Do you see this is the sign of a response from the bot?</p></div>
+            <div class="cmt cmt--reply cmt--author"><div class="cmt-m"><b>Max</b><span>8/9/2018 06:54:03 am</span></div><p>I would concern about it. Do their responses tend to look random and give non sensible answers to open ended responses (e.g, "GOOD" "very nice!")? Also, if you find that established scales do not work well on them, I would worry</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Nick</b><span>8/9/2018 08:09:37 am</span></div><p>Note that repeated IP addresses can be caused by odd defaults, e.g., take this story: <a href="http://theweek.com/articles/624040/how-internet-mapping-glitch-turned-kansas-farm-into-digital-hell" target="_blank" rel="noopener">http://theweek.com/articles/624040/how-internet-mapping-glitch-turned-kansas-farm-into-digital-hell</a></p></div>
+            <div class="cmt cmt--reply cmt--author"><div class="cmt-m"><b>Max</b><span>8/9/2018 11:01:28 am</span></div><p>I think that is a possibility, but in the current issue, it seems that data from repeating GPS usually are far more random than non-repeaters, so I think that is a concern. GPS itself, I think, is just an artifact that happened to be helpful to identify likely problem responses...</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Sam</b><span>8/9/2018 09:22:29 am</span></div><p>In some of the repeating coordinates I've found in my most recent dataset it seems like whoever has done this is also spoofing these coordinates. For example, I have 4 respondents whose coordinates all lead to the middle of the Cheney reservoir in Kansas. Others I've found lead to places in the middle of nowhere in Venezuela, old warehouses, and other places that seem unlikely (or entirely impossible) to have any computers at all, much less internet access.</p></div>
+            <div class="cmt cmt--reply cmt--author"><div class="cmt-m"><b>Max</b><span>8/9/2018 11:06:51 am</span></div><p>I agree! IP is not the most reliable way to easily identify them yet, although some people said that it can be done</p></div>
+            <div class="cmt"><div class="cmt-m"><b>John burger</b><span>8/9/2018 02:10:59 pm</span></div><p>geo-ip is not nearly as reliable as you might think.</p><p>Coordinates in the middle of bodies of water is exactly what you should expect if the IP-to-geo map has low precision. Max Mind started doIng that after the article came out that someone else linked above:<br><a href="http://theweek.com/articles/624040/how-internet-mapping-glitch-turned-kansas-farm-into-digital-hell" target="_blank" rel="noopener">http://theweek.com/articles/624040/how-internet-mapping-glitch-turned-kansas-farm-into-digital-hell</a></p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Elizabeth</b><span>8/10/2018 09:34:08 am</span></div><p>This was helpful. From the initial email, I began to check my data. Became suspicious when I saw ~10 respondents from the Cheney Reservoir noted above in each survey. However, the article John noted and lack of other suspicious patterns in the data cleared concerns.</p></div>
+            <div class="cmt cmt--reply cmt--author"><div class="cmt-m"><b>Max</b><span>8/12/2018 03:37:17 pm</span></div><p>I think the duplicated GPS is just a trace that is left by whoever is doing this. It is certainly possible that they are from real people, but their data appear to be very different at least in my own data and this scholar's <a href="http://timryan.web.unc.edu/2018/08/12/data-contamination-on-mturk/" target="_blank" rel="noopener">http://timryan.web.unc.edu/2018/08/12/data-contamination-on-mturk/</a>. I proposed this procedure to more systematically test the evidentiary value of data from duplicates. I welcome any thoughts any comments<br><a href="https://www.maxhuibai.com/blog/a-proposed-procedure-for-testing-the-evidentiary-value-of-responses-from-duplicated-gps-sources-comments-invited" target="_blank" rel="noopener">https://www.maxhuibai.com/blog/a-proposed-procedure-for-testing-the-evidentiary-value-of-responses-from-duplicated-gps-sources-comments-invited</a></p></div>
+            <div class="cmt"><div class="cmt-m"><b>Phelim (Prolific)</b><span>8/9/2018 10:28:01 am</span></div><p>Just posting in case there are concerns about this being an issue beyond Mturk. We haven't seen any evidence of similar bot-like accounts on Prolific (I'm Prolific's CTO). We have several processes in place to prevent these types of accounts. Including but not limited to the following:</p><p>1) Every account needs a unique non-VOIP phone number to verify.<br>2) We restrict signups based on IP and ISP (e.g. we allow common residential ISPs but block low-trustworthy IP/ISPS)<br>3) We limit to the number of accounts that can use the same IP address and the machine to prevent duplicate accounts.<br>4) We limit the number of unique IPs per "HIT" (study).<br>5) PayPal and Circle accounts for getting paid must be unique to a participant account. This means that in order to have 2 participant accounts that get paid, you would also need to have 2 PayPal accounts. PayPal and Circle also have steps to prevent duplicate accounts.<br>6) We take any data-quality reports very seriously and whenever researchers have suspicions about accounts they can report the relevant participant IDs to us we investigate the individual accounts as well as any shared patterns between them.<br>7) We analyse our internal data to monitor for unusual usage patterns.</p><p>If any Prolific users have concerns about bots, data-quality, or any other questions feel free to get in touch. We take these issues very seriously and do everything we can to make sure any data collected on our platform is trustworthy and reliable.</p></div>
+            <div class="cmt cmt--reply cmt--author"><div class="cmt-m"><b>Max</b><span>8/9/2018 11:09:09 am</span></div><p>Hi Phelim, thank you very much for your message! It is really reassuring to know that Prolific is taking it very seriously. Do you happen to have any data that you have access to and see if there is any repeating GPS (not IP)?</p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Phelim (Prolific)</b><span>8/10/2018 03:11:53 am</span></div><p>We don't record GPS data I'm afraid, although we'll look in to recording this and working with any researchers who record this using our participants.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>J</b><span>8/9/2018 03:28:51 pm</span></div><p>I'm curious whether the following questions below have been discussed:</p><p>For the studies being affected, what are the MTurk presets (e.g. location, previous hits, rejection rate, payment rate)?</p><p>Are people finding that Turkprime is not detecting duplicate IP addresses or confirming locations accurately?</p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>T</b><span>8/9/2018 05:57:24 pm</span></div><p>I'm also curious about the HIT presets. Without appropriate presets, low quality workers are to be expected.</p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Brad Turner</b><span>8/10/2018 08:37:43 am</span></div><p>Yes, I'd appreciate clarity on qualifications used as well. Also, I have to assume the supposed bots or their operators can take unique completion codes generated at the end of the Qualtrics survey and paste them back into MTurk. Can you confirm?</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Kristin Broussard</b><span>8/10/2018 08:50:32 am</span></div><p>I checked one of my recent data sets that was collected through Turk Prime today and found a huge number of repeat GPS coordinates (including 44 with .88639831 that passed 3 attention checks in the survey).</p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Brad Turner</b><span>8/10/2018 10:23:53 am</span></div><p>Hi Kristin, is that data from repeat GPS coordinates good or bad? This may be a red herring. Qualtrics estimates GPS data to the city level except for GPS-enabled mobile devices. Max shows likelihood that some GPS-duplicators are probably bots/scripting users, but it's not necessarily a concern.<br><a href="https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/download-data/understanding-your-dataset/" target="_blank" rel="noopener">https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/download-data/understanding-your-dataset/</a></p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>Kristin</b><span>8/15/2018 04:19:33 am</span></div><p>Hi Brad,<br>Yes, the data is bad. The GPS is just a marker that's useful for pulling cases with bad data. What seems to be the real giveaway are the responses to open-ended questions (e.g., nonsensical responses, "good," "very," "nice,").</p><p>Also, as Max suggested, the reliabilities seem to be lower for theses flagged potential fraudsters/bots (although not necessarily low in an absolute sense), and, as noted by Tim Ryan, there are a high number that input "30" as their age on a type-in question and most chose "male" for their gender.</p><p>I do want to also note that I collected data for 4 different projects on mTurk and TurkPrime this summer and only one data set seems to be highly affected, even after planned exclusions for failing attention checks, etc. One data set seems completely unaffected (after cleaning for attention checks) and one other only had about 30 suspicious cases that passed attention checks.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Cori Faklaris</b><span>8/9/2018 06:04:14 pm</span></div><p>Saw your post on Twitter and it rang a bell for me. I have also seen duplicate IP addresses in Mturk data, plus they are all ridiculously specific in decimal place - but that might be an issue with how they are assigned or recorded. I decided to look at the pattern of the specific responses as you did - unlike in your case though, my open ended responses weren't suspiciously out of context and the Likert responses didn't deviate noticeably from the aggregate. So I don't think our cases are similar issues. I wonder if you were targeted by a script due to the subject matter?</p></div>
+            <div class="cmt"><div class="cmt-m"><b>ctr</b><span>8/10/2018 10:00:12 am</span></div><p>I have some open ended qualitative questions requiring an answer. Although the 88639831 data looks like outright junk, possibly made by a bot or more likely a human with poor english skills and low attention, the other repeating GPS coordinates appear to be mostly good data.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Mark</b><span>8/10/2018 11:12:21 am</span></div><p>Per this very excellent article from Yale Law, you should be using code generation to match data received to payment requests on MTurk.<br><a href="https://library.law.yale.edu/news/administering-qualtrics-surveys-mechanical-turk" target="_blank" rel="noopener">https://library.law.yale.edu/news/administering-qualtrics-surveys-mechanical-turk</a></p><p>Delete any other responses, which are far more likely to be bots.</p><p>Once matched, every data point corresponds to a *specific* MTurk user ID. To set up an account to get that ID the user must provide SSN or other tax ID information to be uniquely identified.</p><p>While GPS or IP might be easy to spoof - tax ID info is not. That means data issues reduce from a bot providing many bogus responses to individual users not really trying. Those users *can* come in groups (e.g., a community of people from a large college population just trying to get some extra cash) that share IP or GPS identifiers.</p><p>When we've used MTurk presets of 95% approval, 500 or more HITs completed, and usually for language purposes US only geographic region, we've found such data problems to be less than 2%.</p><p>Reject those workers.</p><p>If bots, you will never hear from them again - it costs more in time to follow up with you than they'll earn from the survey. And you'll help tarnish their MTurk approval rate to filter them out of future studies.</p><p>If they are real people they will likely email you after rejection complaining about the negative effect on their account and lack of payment. You'll very quickly be able to tell that they are not bots.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>David Rand</b><span>8/10/2018 11:21:15 am</span></div><p>We have not experienced this problem. I believe it's because we begin our HITs by having the workers transcribe a paragraph of handwritten text (essentially, complete a captcha). This is a trivial approach to screen out bots. I recommend it!</p></div>
+            <div class="cmt"><div class="cmt-m"><b>T</b><span>8/11/2018 04:39:52 am</span></div><p>TurkPrime just released a report on the issue, analyzing 100,000 MTurk studies.</p><p>"In the last 24 hours, we have worked to determine whether there is a growing problem of multiple submissions from the same geolocation. In reviewing over 100,000 studies that have been launched on TurkPrime, we see that the rate of submissions from duplicate geolocations typically bounced from less than 1% to 2.5% within a study."</p><p>Over 97% of all studies had 2.5% or fewer duplicates, and they acknowledge duplicates "could be explained by people submitting surveys from the same building, office, internet service provider, or even the same city"</p><p><a href="http://blog.turkprime.com/2018/08/concerns-about-bots-on-mechanical-turk.html" target="_blank" rel="noopener">http://blog.turkprime.com/2018/08/concerns-about-bots-on-mechanical-turk.html</a></p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>billy</b><span>8/21/2018 11:20:14 am</span></div><p>Typical knee jerk reaction. All they can do is block duplicate gps, this does nothing but exclude hundreds of legitimate participants for no reason other than wanting increased privacy.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Katherine H.</b><span>8/11/2018 07:38:57 am</span></div><p>I looked through some data I collected in February-March and found a few repeating GPS coordinates from the Cheney reservoir in Kansas. From what I can tell, they have the same IP addresses and different MTurk IDs.</p><p>Side note: My university IRB asks that I check the box to anonymize data collected on MTurk -- when I remember to do this, it means I don't collect IP address or GPS, making it more difficult for researchers to use this method to detect bots.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Julien (Lucid)</b><span>8/14/2018 03:34:54 pm</span></div><p>Thanks for posting. I work on human and bot fraud detection at Lucid, and may have some pointers to avoid this.</p><p>First, IP address is a rather poor bot detection mechanism. IP addresses are very simple to spoof, and you can always use a VPN to mask your true origin. Using it as your only deduplication mechanism is just playing whack-a-mole. For the record, MaxMind outputs the IP as the "middle of nowhere" in Kansas when the incoming IP is absent or unreadable, so you can assume those invalid. Second, open text input is easily scripted by bots, so it's usually an easy tell.</p><p>We do a couple things to address these problems: no duplicate IP address, cookie, or participant ID can enter a same survey twice. We consider this table stakes for online research, so we offer this free of charge. Additionally, to the issue at hand, we use tools to detect gibberish, ungrammatical inputs, or even duplicate answers between participants. While researchers tend to avoid open-ended questions, they have proven a very good fraud detection mechanism.</p><p>We're happy to advise further on best security practices in online research.</p><p><a href="http://www.luc.id" target="_blank" rel="noopener">www.luc.id</a></p></div>
+            <div class="cmt cmt--reply"><div class="cmt-m"><b>John Burger</b><span>8/18/2018 09:56:03 am</span></div><p>MaxMind also uses the middle of Kansas when all it can tell about the ISP is that it's in the US. This will happen increasingly often with GDPR and other privacy regulations.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Sean</b><span>8/17/2018 02:53:22 pm</span></div><p>My co-authors and I have just posted the following working paper to SSRN that investigates the root cause of this issue. Importantly, we find no evidence of bots.<br><a href="https://ssrn.com/abstract=3233954" target="_blank" rel="noopener">https://ssrn.com/abstract=3233954</a></p></div>
+            <div class="cmt"><div class="cmt-m"><b>Alex</b><span>8/28/2018 06:57:33 am</span></div><p>Hello,</p><p>While this seems like a good method to track scammers, it severely disadvantages those who use MTurk from home with their partners. Based on this study, my partner and I have both received rejections from a requested who utilized this resource.<br>Sincerely,<br>Alex</p></div>
+            <div class="cmt"><div class="cmt-m"><b>Wade</b><span>9/20/2018 02:16:06 pm</span></div><p>Please report these worker IDs to Amazon that the problem can be corrected.</p><p>I would suggest using a 99% approval rate of at least 5000 HITs if you want quality results.</p></div>
+            <div class="cmt"><div class="cmt-m"><b>unanimous</b><span>7/23/2019 12:41:35 pm</span></div><p>You know what?, this study is ridiculous, because of this, many mturkers who are legit and taking time finishing the survey being punished. That example of the nazi crap is just an opinion. How can you justify something from the opinion? If the question is right or wrong answer then justify it using that method.</p><p>That question is just like believing trump or not and justifying your answer using that method because you don't believe or believe on Trump. that's ridiculous! That's why it is called OPINION!!!</p></div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= APPLICATION MATERIALS ========================= -->
+<section class="view" id="view-materials" data-view="materials" aria-label="Application materials">
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Application materials</p>
+        <h2>Paying it forward.</h2>
+        <p>Like many others, I have written many applications on my academic journey, and I was lucky to receive helpful comments and example materials from people who walked the path before me. To return the favor, I am posting materials I have used — the ones that were accepted, since they are likely more useful than the ones that weren't.</p>
+      </div>
+
+      <div class="link-list reveal">
+        <a href="/uploads/1/2/1/1/121166125/submission.pdf" target="_blank" rel="noopener">
+          <span class="li-main">
+            <span class="li-cat">Job applications</span>
+            <span class="li-ttl">Postdoctoral position — Stanford University</span>
+            <span class="li-sub">The application materials submitted for my postdoctoral scientist position at Stanford.</span>
+          </span>
+          <span class="li-arr">Open PDF ↗</span>
+        </a>
+        <div class="disabled">
+          <span class="li-main">
+            <span class="li-cat">Graduate school</span>
+            <span class="li-ttl">Ph.D applications</span>
+            <span class="li-sub">Personal statements and supporting materials from my graduate-school applications.</span>
+          </span>
+          <span class="li-arr">Coming soon</span>
+        </div>
+        <div class="disabled">
+          <span class="li-main">
+            <span class="li-cat">Grants</span>
+            <span class="li-ttl">Funded grant proposals</span>
+            <span class="li-sub">Selected proposals that were awarded funding.</span>
+          </span>
+          <span class="li-arr">Coming soon</span>
+        </div>
+      </div>
+
+      <div class="note-card reveal">
+        <p class="eyebrow">A note</p>
+        <p>If you are early on this path and a particular kind of example would help, reach out — I am glad to share what I can.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= TOOLS / R PACKAGES ========================= -->
+<section class="view" id="view-tools" data-view="tools" aria-label="Code and tools">
+  <div class="block">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Code &amp; tools</p>
+        <h2>Small things for R.</h2>
+        <p>Utilities I built to make my own analyses faster, shared in case they save you time too.</p>
+      </div>
+      <div class="tool-grid reveal">
+        <a class="tool" href="https://github.com/baixx062/regtable" target="_blank" rel="noopener">
+          <span class="code">regtable</span>
+          <h3>Regression tables from lm objects</h3>
+          <p>Generates clean, formatted regression tables directly from your fitted <code>lm</code> models.</p>
+          <span class="arr">Documentation →</span>
+        </a>
+        <a class="tool" href="/uploads/1/2/1/1/121166125/cor.csv.r" target="_blank" rel="noopener">
+          <span class="code">cor.csv()</span>
+          <h3>Correlation tables to Excel</h3>
+          <p>Builds a correlation table from a data frame and writes it to Excel — with means and SDs, rounded to .00, and significance markings (*** &lt; .001, ** &lt; .01, * &lt; .05, + &lt; .10).</p>
+          <span class="arr">Download R script →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="chop" aria-hidden="true"><b>柏</b>翙</span>
+      <div class="fn">Max Hui Bai, Ph.D</div>
+      <div class="ft">Scientist · Entrepreneur · Speaker</div>
+    </div>
+    <div class="contact">
+      <h4>Contact</h4>
+      <!-- TODO(Max): replace the two mailto addresses below with your real emails -->
+      <div class="c-item">
+        <span class="c-lbl">Academic inquiries</span>
+        <a href="mailto:maxhuibai@politicalbelieflab.com">Email Max</a>
+        <span class="c-note">At the moment, Max is unable to take on new requests for peer-reviewing manuscripts.</span>
+      </div>
+      <div class="c-item">
+        <span class="c-lbl">The Publish or Perish Game</span>
+        <a href="mailto:max@publishorperish.games">Email the game team</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Max Hui Bai · 柏翙</span>
+    <a id="toTop">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var ROUTES = ["home","research","diversity","blog","materials","tools"];
+  var TITLES = {
+    home:"Max Hui Bai, Ph.D · 柏翙 — Scientist, Entrepreneur, Speaker",
+    research:"Research findings — Max Hui Bai, Ph.D",
+    diversity:"Diversity statement — Max Hui Bai, Ph.D",
+    blog:"Blog — Max Hui Bai, Ph.D",
+    materials:"Application materials — Max Hui Bai, Ph.D",
+    tools:"Code & tools — Max Hui Bai, Ph.D"
+  };
+
+  var views = {};
+  ROUTES.forEach(function(r){ views[r] = document.getElementById("view-"+r); });
+  var nav = document.getElementById("primaryNav");
+  var menuBtn = document.getElementById("menuBtn");
+
+  function currentRoute(){
+    var h = (location.hash || "").replace("#","").toLowerCase();
+    return ROUTES.indexOf(h) !== -1 ? h : "home";
+  }
+  function prefersReduced(){
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  function render(route, doScroll){
+    ROUTES.forEach(function(r){
+      if(views[r]) views[r].classList.toggle("is-active", r === route);
+    });
+    nav.querySelectorAll("a[data-nav]").forEach(function(a){
+      var target = (a.getAttribute("href")||"").replace("#","");
+      if(target === route){ a.setAttribute("aria-current","page"); } else { a.removeAttribute("aria-current"); }
+    });
+    document.title = TITLES[route] || TITLES.home;
+    closeMenu();
+    if(doScroll){ window.scrollTo({top:0, behavior: prefersReduced() ? "auto" : "smooth"}); }
+  }
+
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest('a[data-nav]');
+    if(!a) return;
+    var href = a.getAttribute("href") || "";
+    if(href.charAt(0) !== "#") return;
+    e.preventDefault();
+    var route = href.replace("#","").toLowerCase();
+    if(ROUTES.indexOf(route) === -1) route = "home";
+    if(location.hash.replace("#","") !== route){ history.pushState(null, "", "#"+route); }
+    render(route, true);
+  });
+  window.addEventListener("hashchange", function(){ render(currentRoute(), true); });
+  window.addEventListener("popstate", function(){ render(currentRoute(), true); });
+
+  function openMenu(){ nav.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); }
+  function closeMenu(){ nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }
+  menuBtn.addEventListener("click", function(){ nav.classList.contains("open") ? closeMenu() : openMenu(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeMenu(); });
+
+  document.getElementById("toTop").addEventListener("click", function(){
+    if(location.hash.replace("#","") !== "home"){ history.pushState(null,"","#home"); render("home", true); }
+    else { window.scrollTo({top:0, behavior: prefersReduced() ? "auto":"smooth"}); }
+  });
+
+  // ---- Signature: a spotlight of perception follows the cursor across the dot field ----
+  var light = document.getElementById("heroLight");
+  var scope = document.getElementById("view-home");
+  var canHover = window.matchMedia && window.matchMedia("(hover:hover)").matches;
+  if(light && scope && canHover && !prefersReduced()){
+    var tx=78, ty=22, cx=78, cy=22, raf=null;
+    function loop(){
+      cx += (tx-cx)*0.12; cy += (ty-cy)*0.12;
+      light.style.setProperty("--mx", cx.toFixed(2)+"%");
+      light.style.setProperty("--my", cy.toFixed(2)+"%");
+      if(Math.abs(tx-cx)>0.1 || Math.abs(ty-cy)>0.1){ raf=requestAnimationFrame(loop); } else { raf=null; }
+    }
+    function kick(){ if(!raf) raf=requestAnimationFrame(loop); }
+    scope.addEventListener("mousemove", function(e){
+      var r = light.getBoundingClientRect();
+      tx = Math.max(0, Math.min(100, ((e.clientX - r.left)/r.width)*100));
+      ty = Math.max(0, Math.min(100, ((e.clientY - r.top)/r.height)*100));
+      light.classList.add("lit"); kick();
+    });
+    scope.addEventListener("mouseleave", function(){ light.classList.remove("lit"); tx=78; ty=22; kick(); });
+  }
+
+  render(currentRoute(), false);
+})();
+</script>
+</body>
+</html>

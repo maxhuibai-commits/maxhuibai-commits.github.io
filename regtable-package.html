@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>regtable package — Max Hui Bai (archive)</title>
+<style>body{margin:0;background:#F5F5F0;color:#1c1e21;font:17px/1.65 Georgia,'Times New Roman',serif}
+.wrap{max-width:720px;margin:0 auto;padding:48px 22px 80px}
+.banner{font:13px/1.5 ui-monospace,Menlo,monospace;background:#1c1e21;color:#F5F5F0;padding:10px 14px;border-radius:4px;margin-bottom:36px}
+.banner a{color:#EAC98A}
+h1{font-size:1.9rem;line-height:1.15;font-weight:500;margin:0 0 .4rem}
+.meta{font:13px ui-monospace,Menlo,monospace;color:#70747c;margin-bottom:2rem}
+p{margin:0 0 1.15rem} strong{font-weight:700}
+pre{background:#ECECE4;border:1px solid #d8d8cf;border-radius:4px;padding:14px 16px;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,monospace}
+a{color:#274e13}
+.cmts{margin-top:3rem;border-top:2px solid #1c1e21;padding-top:1.2rem}
+.cmts-h{font:11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#70747c;margin-bottom:1rem}
+.cmt{padding:.8rem 0;border-bottom:1px solid #ddddd4}
+.cmt-m{font:13px ui-monospace,Menlo,monospace;margin-bottom:.3rem}
+.cmt-m b{font-weight:700}.cmt-m span{color:#70747c;margin-left:.7em;font-size:11px}
+.cmt p{font-size:15px;color:#3c4046;margin:0 0 .55rem}
+.cmt--reply{margin-left:2rem;border-left:2px solid #d8d8cf;padding-left:1rem}
+.cmt--author .cmt-m b{color:#8a6d1d}</style></head><body><div class="wrap">
+<div class="banner">Archived page &mdash; preserved at its original address for citation continuity. Visit the current site: <a href="/">maxhuibai.com</a></div>
+<h1>regtable package</h1><div class="meta">(Max) Hui Bai &middot; R utilities &middot; maxhuibai.com</div>
+<p>This R package can put lm objects directly into a table that is compliant with the latest reporting practice in psych journals. In short, this package generates regression table from lm objects in R, compliant with the latest reporting practice for psych journals. It includes p value at 3 decimal points, 95% confidence interval, effect size in partial eta square, and standardized estimates.</p>
+<p><a href="https://github.com/baixx062/regtable">https://github.com/baixx062/regtable</a></p>
+<p>In case you are not familiar with R. Just type the following code to install and load it</p>
+<pre>library("devtools")
+install_github("baixx062/regtable",force=TRUE)
+library("regtable")</pre>
+<p>Here is an example for how to use it:</p>
+<pre>library(car)
+a&lt;-lm(mpg~cyl+disp+drat*wt,data=mtcars)
+regtable(a,"tableresults.csv")</pre>
+
+</div></body></html>

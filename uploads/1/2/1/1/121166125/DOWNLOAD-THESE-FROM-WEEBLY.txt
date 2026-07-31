@@ -1,0 +1,14 @@
+Before canceling Weebly, download these files from the old site and place
+them in THIS folder (same names), so every published link keeps working:
+
+  1. bai_cv.pdf
+     http://www.maxhuibai.com/uploads/1/2/1/1/121166125/bai_cv.pdf
+  2. submission.pdf   (Stanford postdoc application materials)
+     http://www.maxhuibai.com/uploads/1/2/1/1/121166125/submission.pdf
+  3. cor.csv.r        (R script on the Tools page)
+     http://www.maxhuibai.com/uploads/1/2/1/1/121166125/cor.csv.r
+  4. screen-shot-2018-08-13-at-9-50-12-am_orig.png   (blog figure)
+     http://www.maxhuibai.com/uploads/1/2/1/1/121166125/screen-shot-2018-08-13-at-9-50-12-am_orig.png
+
+Tip: also check Weebly's file manager for anything else under /uploads/
+and copy it here with the same folder structure. Then delete this file.
